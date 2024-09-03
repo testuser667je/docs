@@ -1,0 +1,744 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://data.europa.eu/xxx/ontology/dcatapop#"
+     xml:base="http://data.europa.eu/xxx/ontology/dcatapop"
+     xmlns:schema="http://schema.org/"
+     xmlns:spdx="http://spdx.org/rdf/terms#"
+     xmlns:dcatap="http://data.europa.eu/xxx/ontology/dcatap#"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:powder-s="http://www.w3.org/2007/05/powder-s#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:voaf="http://purl.org/vocommons/voaf#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:dcatapop="http://data.europa.eu/xxx/ontology/dcatapop#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:dcat="http://www.w3.org/ns/dcat#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:wot="http://xmlns.com/wot/0.1/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op">
+        <owl:imports rdf:resource="http://data.europa.eu/xxx/ontology/dcatap"/>
+        <dcterms:creator xml:lang="en">EU Open Data Portal team</dcterms:creator>
+        <dcterms:creator xml:lang="en">V1.0 3 2017/01/30
+dcatapop is  an application profile for EU Publications Office based on dcat-ap V1.1.</dcterms:creator>
+        <rdfs:comment xml:lang="en">dcat-ap-op V1.05 2017/06/07
+change the uri of the ontology for a definitive name validated by MDR :http://data.europa.eu/88u/ontology/dcat-ap-op
+dcat:mediaType added as property for dcat:Distribution
+replacement of vcard:hasURL with schema:url
+when the property foaf:topic is used as property of foaf:Document, the range is dcat:Dataset OR dcat:Distribution
+ 
+
+dcat-ap-op V1.04 2017/03/24
+- delete property titleCatalog
+- delete dataExtensionDate
+- range of dcatop:iframe changed from literal to integer
+-  added range of dcterms:provenance : dcterms:ProvenanceStatement
+- type of byteSize changed from rdfs:literal to rdfs:decimal
+- spdx:algorithm changed from data property to object property
+
+dcat-ap-op V1.03 2017/03/02
+- new class DataTheme
+- new restriction: dcat:theme should have value in DataTheme for the class Dataset
+- new class DatasetType
+- new restriction: dct:type should have a value in DatasetType for the class Dataset
+- new ontology namespace : data.europa.eu/xxx/ontology/dcatapop (xxx should be updated)
+- new restriction : checksum added to Distribution
+- added extensionValue and extensionLiteral to Distribution and Dataset
+
+dcat-ap-op V1.02 2017/02/07
+namespace of the ontology is now http://data.europa.eu/ontology/dcatapop#
+
+dcat-ap-op V1.01 2017/02/07
+- adding dcatapop:DataExtension
+- adding dcatapop:dataExtensionLiteral
+- adding dcatapop:dataExtensionValue
+- adding dcatapop:dataExtensionDate
+
+dcat-ap-op V1 2017/02/02
+- first version</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#extensionLiteral -->
+
+    <owl:ObjectProperty rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#extensionLiteral">
+        <rdfs:range rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DataExtension"/>
+        <rdfs:comment xml:lang="en">Allows to add a metadata (Literal) to any resource, such as Dataset</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#extensionValue -->
+
+    <owl:ObjectProperty rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#extensionValue">
+        <rdfs:range rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DataExtension"/>
+        <rdfs:comment xml:lang="en">Allows to add a metadata (Value) to any resource, such as Dataset</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#isPartOfCatalog -->
+
+    <owl:ObjectProperty rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#isPartOfCatalog">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/dcat#Catalog"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#temporalGranularity -->
+
+    <owl:ObjectProperty rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#temporalGranularity">
+        <rdfs:range rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#TemporalGranularity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/format -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/format"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/hasPart"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/isPart -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/isPart"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/provenance -->
+
+    <rdf:Description rdf:about="http://purl.org/dc/terms/provenance">
+        <rdfs:range rdf:resource="http://purl.org/dc/terms/ProvenanceStatement"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/dc/terms/subject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/subject"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/type -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/type"/>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#algorithm -->
+
+    <owl:ObjectProperty rdf:about="http://spdx.org/rdf/terms#algorithm">
+        <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#Checksum"/>
+        <rdfs:comment xml:lang="en">Identifies the algorithm used to produce the subject Checksum. Currently, SHA-1 is the only supported algorithm. It is anticipated that other algorithms will be supported at a later time.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#hasURL -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/vcard/ns#hasURL"/>
+    
+
+
+    <!-- http://www.w3.org/ns/adms#status -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/adms#status"/>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#theme -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/dcat#theme"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/primaryTopic -->
+
+    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/primaryTopic"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/topic -->
+
+    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/topic"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#applicationUsingDataset -->
+
+    <owl:DatatypeProperty rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#applicationUsingDataset">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#ckanName -->
+
+    <owl:DatatypeProperty rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#ckanName">
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">unique name which is either nice-name and is based on the title, or it is a hash if there is no nice name. This name is used to create a URL of the record.</rdfs:comment>
+        <rdfs:label xml:lang="en">ckan name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#dataExtensionLiteral -->
+
+    <owl:DatatypeProperty rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#dataExtensionLiteral">
+        <rdfs:domain rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DataExtension"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">To express any literal property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#dataExtensionValue -->
+
+    <owl:DatatypeProperty rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#dataExtensionValue">
+        <rdfs:domain rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DataExtension"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">Express any value</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#iframe -->
+
+    <owl:DatatypeProperty rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#iframe">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label xml:lang="en">iframe</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#numberOfDownloads -->
+
+    <owl:DatatypeProperty rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#numberOfDownloads">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:label xml:lang="en">number of downloads</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#numberOfViews -->
+
+    <owl:DatatypeProperty rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#numberOfViews">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/alternative -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/alternative">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/title"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://schema.org/url -->
+
+    <owl:DatatypeProperty rdf:about="http://schema.org/url">
+        <rdfs:label>url</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#DataExtension -->
+
+    <owl:Class rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#DataExtension">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/description"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/title"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#DataTheme -->
+
+    <owl:Class rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#DataTheme">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#DatasetGroup -->
+
+    <owl:Class rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#DatasetGroup">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="en">DatasetGroup allows the ODP team to classify the datasets with their own taxonomy.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#DatasetStatus -->
+
+    <owl:Class rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#DatasetStatus">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="en">used to describe the status of CatalogRecord and Dataset</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#DatasetSubject -->
+
+    <owl:Class rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#DatasetSubject">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#DatasetType -->
+
+    <owl:Class rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#DatasetType">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#DistributionType -->
+
+    <owl:Class rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#DistributionType">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#DocumentationType -->
+
+    <owl:Class rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#DocumentationType">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="en">Type of Documentation</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.europa.eu/88u/ontology/dcat-ap-op#TemporalGranularity -->
+
+    <owl:Class rdf:about="http://data.europa.eu/88u/ontology/dcat-ap-op#TemporalGranularity">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="en">This property indicates the time granularity of the statistical observations in the dataset.</rdfs:comment>
+        <rdfs:label xml:lang="en">temporal granularity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://publications.europa.eu/ontology/dcatapop#Corporate -->
+
+    <owl:Class rdf:about="http://publications.europa.eu/ontology/dcatapop#Corporate">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dc/terms/Frequency -->
+
+    <owl:Class rdf:about="http://purl.org/dc/terms/Frequency">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dc/terms/LinguisticSystem -->
+
+    <owl:Class rdf:about="http://purl.org/dc/terms/LinguisticSystem">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dc/terms/Location -->
+
+    <owl:Class rdf:about="http://purl.org/dc/terms/Location">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dc/terms/MediaTypeOrExtent -->
+
+    <owl:Class rdf:about="http://purl.org/dc/terms/MediaTypeOrExtent">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dc/terms/PeriodOfTime -->
+
+    <owl:Class rdf:about="http://purl.org/dc/terms/PeriodOfTime">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#Checksum -->
+
+    <rdf:Description rdf:about="http://spdx.org/rdf/terms#Checksum">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#algorithm"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#Resource -->
+
+    <owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#CatalogRecord -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/dcat#CatalogRecord">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/adms#status"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DatasetStatus"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#numberOfViews"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#Dataset -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/dcat#Dataset">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#extensionLiteral"/>
+                <owl:someValuesFrom rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DataExtension"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#extensionValue"/>
+                <owl:someValuesFrom rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DataExtension"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#temporalGranularity"/>
+                <owl:someValuesFrom rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#TemporalGranularity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/hasPart"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/subject"/>
+                <owl:someValuesFrom rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DatasetSubject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/topic"/>
+                <owl:someValuesFrom rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DatasetGroup"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/dcat#theme"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DataTheme"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#isPartOfCatalog"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/ns/dcat#Catalog"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/contributor"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://publications.europa.eu/ontology/dcatapop#Corporate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/isPart"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/type"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DatasetType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#applicationUsingDataset"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#numberOfViews"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/alternative"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#ckanName"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/subject"/>
+                <owl:someValuesFrom rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DatasetSubject"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:label xml:lang="en">controlled keyword</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/topic"/>
+                <owl:someValuesFrom rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DatasetGroup"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:label xml:lang="en">groups</rdfs:label>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/alternative"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:label xml:lang="en">alternative title</rdfs:label>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#Distribution -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/dcat#Distribution">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#extensionLiteral"/>
+                <owl:someValuesFrom rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DataExtension"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#extensionValue"/>
+                <owl:someValuesFrom rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DataExtension"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/dcat#mediaType"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/dc/terms/MediaTypeOrExtent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/type"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DistributionType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/adms#status"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DatasetStatus"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#iframe"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#numberOfDownloads"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Document -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Document">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/dcat#Distribution"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/topic"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/format"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.org/dc/terms/MediaTypeOrExtent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/type"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://data.europa.eu/88u/ontology/dcat-ap-op#DocumentationType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/description"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://schema.org/url"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/dc/terms/title"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+
